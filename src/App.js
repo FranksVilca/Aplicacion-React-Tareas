@@ -1,5 +1,6 @@
 import './App.css';
 import freeCodeCampLogo from './imagenes/freecodecamp-logo (1).png';
+
 function App() {
   return (
     <div className="aplicacion-tareas">
