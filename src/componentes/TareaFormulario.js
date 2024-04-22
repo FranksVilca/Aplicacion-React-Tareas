@@ -14,7 +14,7 @@ function TareaFormularios(props){
             Agregar Tarea
          </button>
      </form>  
-   );
+   )
 }
 
 export default TareaFormularios;
