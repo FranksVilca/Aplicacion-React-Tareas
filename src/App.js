@@ -1,7 +1,5 @@
 import './App.css';
 import freeCodeCampLogo from './imagenes/freecodecamp-logo (1).png';
-import TareaFormularios from './componentes/TareaFormulario';
-import Tarea from './componentes/Tarea'; 
 import ListaDeTarea from './componentes/ListaDeTareas';
 
 function App() {
