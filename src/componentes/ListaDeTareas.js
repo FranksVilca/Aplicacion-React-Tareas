@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import TareaFormulario from "./TareaFormulario";
+import React, { useState } from 'react';
+import TareaFormulario from './TareaFormulario';
 import Tarea from './Tarea';
-import '../hojas-de-estilo/ListaDeTareas.css'
+import '../hojas-de-estilo/ListaDeTareas.css';
 
-function ListaDeTarea() {
+function ListaDeTareas() {
 
-  const [tareas, setTareas] = useState([]); 
+  const [tareas, setTareas] = useState([]);
 
   const agregarTarea = tarea => {
     if (tarea.texto.trim()) {
@@ -20,10 +20,20 @@ function ListaDeTarea() {
     setTareas(tareasActualizadas);
   }
 
-  return( 
+  const completarTarea = id => {
+    const tareasActualizadas = tareas.map(tarea => {
+      if (tarea.id === id) {
+        tarea.completada = !tarea.completada;
+      }
+      return tarea;
+    });
+    setTareas(tareasActualizadas);
+  }
+  
+  return (
     <>
-      < TareaFormulario onSubmit={agregarTarea} />
-      <div className="tareas-lista-contenedor">
+      <TareaFormulario onSubmit={agregarTarea} />
+      <div className='tareas-lista-contenedor'>
         {
           tareas.map((tarea) =>
             <Tarea
@@ -31,14 +41,13 @@ function ListaDeTarea() {
               id={tarea.id} 
               texto={tarea.texto}
               completada={tarea.completada}
-              eliminarTarea={eliminarTarea}
-            />  
-          )
+              completarTarea={completarTarea}
+              eliminarTarea={eliminarTarea} />
+          ) 
         }
       </div>
     </>
-  );
+  );    
 }
 
-export default ListaDeTarea;
-
+export default ListaDeTareas;
