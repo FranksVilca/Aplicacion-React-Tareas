@@ -15,6 +15,11 @@ function ListaDeTarea() {
     }
   }
 
+  const eliminarTarea = id => {
+    const tareasActualizadas = tareas.filter(tarea => tarea.id !== id);
+    setTareas(tareasActualizadas);
+  }
+
   return( 
     <>
       < TareaFormulario onSubmit={agregarTarea} />
@@ -26,6 +31,7 @@ function ListaDeTarea() {
               id={tarea.id} 
               texto={tarea.texto}
               completada={tarea.completada}
+              eliminarTarea={eliminarTarea}
             />  
           )
         }
